@@ -54,8 +54,8 @@ class LogframeItemResource extends Resource
                             ->relationship(
                                 'parent',
                                 'description',
-                                fn (Builder $query, ?LogframeItem $record) => $query
-                                    ->when($record, fn (Builder $q) => $q->where('id', '!=', $record->id))
+                                fn (Builder $q, ?LogframeItem $record) => $q
+                                    ->when($record, fn (Builder $q2) => $q2->where('id', '!=', $record->id))
                             )
                             ->searchable()
                             ->preload()

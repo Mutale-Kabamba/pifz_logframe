@@ -37,8 +37,7 @@ class ViewUser extends ViewRecord
                             ->label('Roles')
                             ->badge(),
                         TextEntry::make('assigned_projects_count')
-                            ->label('Assigned Projects')
-                            ->state(fn ($record): int => $record->assignedProjects()->count()),
+                            ->label('Assigned Projects'),
                         TextEntry::make('created_at')
                             ->dateTime(),
                         TextEntry::make('updated_at')

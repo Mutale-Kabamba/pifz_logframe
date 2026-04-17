@@ -15,6 +15,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 
 class UserResource extends Resource
@@ -104,5 +105,10 @@ class UserResource extends Resource
             'edit' => Pages\EditUser::route('/{record}/edit'),
             'view' => Pages\ViewUser::route('/{record}'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->withCount('assignedProjects');
     }
 }
