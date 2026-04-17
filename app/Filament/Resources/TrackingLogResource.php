@@ -27,9 +27,9 @@ class TrackingLogResource extends Resource
 {
     protected static ?string $model = TrackingLog::class;
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-chart-bar-square';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-chart-bar-square';
 
-    protected static string | \UnitEnum | null $navigationGroup = 'Project Management';
+    protected static string|\UnitEnum|null $navigationGroup = 'Project Management';
 
     protected static ?string $navigationLabel = 'Tracking Logs';
 
@@ -150,6 +150,7 @@ class TrackingLogResource extends Resource
             'index' => Pages\ListTrackingLogs::route('/'),
             'create' => Pages\CreateTrackingLog::route('/create'),
             'edit' => Pages\EditTrackingLog::route('/{record}/edit'),
+            'view' => Pages\ViewTrackingLog::route('/{record}'),
         ];
     }
 
@@ -168,12 +169,5 @@ class TrackingLogResource extends Resource
         }
 
         return $query;
-    }
-
-    public static function mutateFormDataBeforeCreate(array $data): array
-    {
-        $data['recorded_by'] = Auth::id();
-
-        return $data;
     }
 }

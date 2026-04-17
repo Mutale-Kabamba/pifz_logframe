@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources\UserResource\Pages;
+namespace App\Filament\Resources\LogframeItemResource\Pages;
 
-use App\Filament\Resources\UserResource;
+use App\Filament\Resources\LogframeItemResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditUser extends EditRecord
+class EditLogframeItem extends EditRecord
 {
-    protected static string $resource = UserResource::class;
+    protected static string $resource = LogframeItemResource::class;
 
     protected function getHeaderActions(): array
     {

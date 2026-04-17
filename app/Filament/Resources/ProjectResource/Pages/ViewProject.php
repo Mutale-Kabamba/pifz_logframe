@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources\ProjectResource\Pages;
 
-use App\Enums\LogframeCategory;
 use App\Filament\Resources\ProjectResource;
-use App\Models\Project;
 use Filament\Actions;
+use Filament\Infolists\Components\Entry;
 use Filament\Infolists\Components\RepeatableEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Resources\Pages\ViewRecord;
@@ -89,7 +88,7 @@ class ViewProject extends ViewRecord
             ]);
     }
 
-    /** @return array<int, \Filament\Infolists\Components\Entry> */
+    /** @return array<int, Entry> */
     protected static function logframeInfolistSchema(): array
     {
         return [
