@@ -5,19 +5,16 @@ declare(strict_types=1);
 namespace App\Filament\Resources\ProjectResource\RelationManagers;
 
 use App\Enums\LogframeCategory;
-use App\Models\LogframeItem;
+use App\Models\TrackingLog;
 use Filament\Forms\Components\DateTimePicker;
-use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 
 class TrackingLogsRelationManager extends RelationManager
@@ -84,7 +81,7 @@ class TrackingLogsRelationManager extends RelationManager
                     ->action(function (array $data): void {
                         $data['recorded_by'] = Auth::id();
 
-                        \App\Models\TrackingLog::create($data);
+                        TrackingLog::create($data);
                     }),
             ])
             ->actions([
